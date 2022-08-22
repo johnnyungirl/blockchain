@@ -1,22 +1,26 @@
 package main
 
 import (
-	"crypto/elliptic"
 	"fmt"
 )
 
-type Getter interface {
-	Get() string
+func birthdayCakeCandles(candles []int32) int32 {
+    count:=0
+    max:=candles[0]
+    for i:=0;i<len(candles);i++{
+        if(candles[i]>max){
+            max=candles[i]
+            count=0
+        }
+        if(candles[i]==max){
+            count++
+        }
+    }
+    // Write your code here
+    return int32(count)
 }
 
-type Foo struct {
-	Bar string
-}
-
-func (f Foo) Get() string {
-	return f.Bar
-}
 func main() {
-	curve := elliptic.P256()
-	fmt.Println(curve.Params())
+	 arr:= []int32{56, 221 ,2,8974,1,2,3,8974}
+	fmt.Println(birthdayCakeCandles(arr))
 }
